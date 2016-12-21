@@ -6,11 +6,12 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textAllCaps">false</item>
     </style>
     <style name="RecoveryTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/recoveryColorPrimary</item>
         <item name="colorPrimaryDark">@color/recoveryColorPrimaryDark</item>
-        <item name="colorAccent">@color/recoveryColorAccent</item>
+        <item name="colorAccent">@color/backgroundColor</item>
         <item name="android:windowBackground">@null</item>
     </style>
 
@@ -23,4 +24,13 @@
 
     <style name="RecoveryTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="button_blue">
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/btn_selector_blue</item>
+        <item name="android:padding">10dp</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

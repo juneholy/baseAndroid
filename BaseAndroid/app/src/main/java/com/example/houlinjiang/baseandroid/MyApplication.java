@@ -1,6 +1,7 @@
 package com.example.houlinjiang.baseandroid;
 
 import android.app.Application;
+import android.app.Notification;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.Log;
@@ -42,16 +43,19 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("zxy", "Recovery: init");
-        Recovery.getInstance()
-                .debug(true)
-                .recoverInBackground(false)
-                .recoverStack(true)
-                .mainPage(MainActivity.class)
-                .callback(new MyCrashCallback())
-                .silent(false, Recovery.SilentMode.RECOVER_ACTIVITY_STACK)
-//                .skip(TestActivity.class)
-                .init(this);
+        initRecovery();
+    }
+
+    private void initRecovery() {
+//        Recovery.getInstance()
+//                .debug(true)
+//                .recoverInBackground(false)
+//                .recoverStack(true)
+//                .mainPage(MainActivity.class)
+//                .callback(new MyCrashCallback())
+//                .silent(false, Recovery.SilentMode.RECOVER_ACTIVITY_STACK)
+////                .skip(TestActivity.class)
+//                .init(this);
     }
 
     static final class MyCrashCallback implements RecoveryCallback {

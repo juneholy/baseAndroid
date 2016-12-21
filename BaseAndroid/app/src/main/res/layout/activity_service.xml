@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        style="@style/button_blue"
+        android:text="start service"
+        android:textColor="@color/textColorWhite"
+        android:onClick="startService"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        style="@style/button_blue"
+        android:text="stop service"
+        android:textColor="@color/textColorWhite"
+        android:onClick="stopService"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        style="@style/button_blue"
+        android:text="bind service"
+        android:textColor="@color/textColorWhite"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        style="@style/button_blue"
+        android:text="unbind service"
+        android:textColor="@color/textColorWhite"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

@@ -5,6 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="recoveryColorPrimary">#F44336</color>
     <color name="recoveryColorPrimaryDark">#D32F2F</color>
-    <color name="recoveryColorAccent">#BDBDBD</color>
-    <color name="recoveryTextColor">#FFFFFF</color>
+    <color name="backgroundColor">#f1f1f1</color>
+    <color name="textColorWhite">#FFFFFF</color>
 </resources>
