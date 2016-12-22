@@ -1,13 +1,17 @@
-package com.example.houlinjiang.baseandroid;
+package com.example.houlinjiang.baseandroid.service;
 
 import android.app.Notification;
 import android.app.Notification.Builder;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
+
+import com.example.houlinjiang.baseandroid.R;
 
 
 /**
@@ -15,22 +19,30 @@ import android.widget.RemoteViews;
  */
 
 public class MyService extends Service{
+
+    private MyBinder mBinder = new MyBinder();
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mBinder;
     }
 
     @Override
     public void onCreate() {
-        Log.e("MyService","onCreate");
         super.onCreate();
-
+        Log.e("MyService","onCreate");
+        Log.e("MyService", "MyService thread id is " + Thread.currentThread().getId());
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.e("MyService","onStartCommand");
-        initNotification();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                // 开始执行后台任务
+//            }
+//        }).start();
+//        initNotification();
         /**
         1):START_STICKY：如果service进程被kill掉，保留service的状态为开始状态，但不保留递送的intent对象。随后系统会尝试重新创建service，由于服务状态为开始状态，所以创建服务后一定会调用onStartCommand(Intent,int,int)方法。如果在此期间没有任何启动命令被传递到service，那么参数Intent将为null。
          系统就会重新创建这个服务并且调用onStartCommand()方法，但是它不会重新传递最后的Intent对象，这适用于不执行命令的媒体播放器（或类似的服务），它只是无限期的运行着并等待工作的到来。
@@ -51,18 +63,28 @@ public class MyService extends Service{
     private void initNotification() {
         Notification.Builder builder = new Builder(this);
 
-        RemoteViews rv = new RemoteViews(getPackageName(),R.layout.layout_notification);
+        RemoteViews rv = new RemoteViews(getPackageName(), R.layout.layout_notification);
         rv.setTextViewText(R.id.tv_notification,"通知展示内容");
 
         Intent intent = new Intent(Intent.ACTION_MAIN);
         PendingIntent pendingIntent = PendingIntent.getService(this,1,intent, PendingIntent.FLAG_NO_CREATE);
 
         builder.setSmallIcon(R.drawable.icon)
-                .setContentText("常驻前台")
-                .setCustomContentView(rv)
+                .setContentText("这里是内容")
+                .setContentTitle("这里是标题")
+//                .setCustomContentView(rv)
                 .setWhen(System.currentTimeMillis())
-                .setContentIntent(pendingIntent)
+//                .setContentIntent(pendingIntent)
                 .setOngoing(true)
                 .build();
+        Notification notification = builder.build();
+        notification.flags |= Notification.FLAG_INSISTENT;
+        NotificationManagerCompat.from(this).notify(1, notification);
+    }
+
+    public class MyBinder extends Binder{
+        public void startTask() {
+            Log.e("MyService","startTask");
+        }
     }
 }

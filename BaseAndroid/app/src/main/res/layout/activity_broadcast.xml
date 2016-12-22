@@ -8,33 +8,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/button_blue"
-        android:text="start service"
+        android:text="register broadcast"
         android:textColor="@color/textColorWhite"
-        android:onClick="startServiceClick"
+        android:onClick="registerBroadcastClick"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/button_blue"
-        android:text="stop service"
+        android:text="unregister broadcast"
         android:textColor="@color/textColorWhite"
-        android:onClick="stopServiceClick"
+        android:onClick="unregisterBroadcastClick"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/button_blue"
-        android:text="bind service"
+        android:text="sendBroadcast"
         android:textColor="@color/textColorWhite"
-        android:onClick="bindServiceClick"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        style="@style/button_blue"
-        android:text="unbind service"
-        android:textColor="@color/textColorWhite"
-        android:onClick="unBindServiceClick"
+        android:onClick="sendBroadcastClick"
         />
     <TextView
         android:layout_width="wrap_content"

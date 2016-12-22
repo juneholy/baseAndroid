@@ -2,7 +2,17 @@
 <manifest package="com.example.houlinjiang.baseandroid"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <!--====================================================================================-->
+    <!--*****************************     permission           *****************************-->
+    <!--====================================================================================-->
     <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:name=".MyApplication"
@@ -11,12 +21,13 @@
         android:supportsRtl="true"
         android:persistent="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <!--====================================================================================-->
+        <!--*****************************     activity           *******************************-->
+        <!--====================================================================================-->
+
+        <activity android:name=".MainActivity">
+
         </activity>
         <activity
             android:name=".recovery.core.RecoveryActivity"
@@ -26,16 +37,49 @@
             android:screenOrientation="portrait"
             android:theme="@style/RecoveryTheme">
         </activity>
-        <activity android:name=".ServiceActivity"/>
+        <activity android:name=".service.TestServiceActivity"/>
+        <activity
+            android:name=".service.MessengerActivity"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.lypeer.messenger"></action>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".broadcast.TestBroadcastActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!--====================================================================================-->
+        <!--*****************************     service           *******************************-->
+        <!--====================================================================================-->
         <service
             android:name=".recovery.core.RecoveryService"
             android:enabled="true"
             android:exported="false"
             android:process=":recover">
         </service>
-        <service android:name=".MyService"
+        <service android:name=".service.MyService"
             android:icon="@drawable/icon"/>
+        <service android:name=".service.MyRemoteService"
+                 android:process=":remote"/>
+        <!--====================================================================================-->
+        <!--*****************************     receiver           *******************************-->
+        <!--====================================================================================-->
+        <receiver android:name=".broadcast.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"></action>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"></action>
+                <action android:name="android.intent.action.MEDIA_UNMOUNTABLE"></action>
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
