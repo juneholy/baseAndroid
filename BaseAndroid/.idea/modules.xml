@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BaseAndroid.iml" filepath="$PROJECT_DIR$/BaseAndroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jniguard/jniguard.iml" filepath="$PROJECT_DIR$/jniguard/jniguard.iml" />
       <module fileurl="file://$PROJECT_DIR$/phoenixlib/phoenixlib.iml" filepath="$PROJECT_DIR$/phoenixlib/phoenixlib.iml" />
     </modules>
   </component>

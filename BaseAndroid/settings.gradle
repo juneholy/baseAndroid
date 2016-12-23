@@ -1,1 +1,1 @@
-include ':app', ':phoenixlib'
+include ':app', ':phoenixlib', ':jniguard'
