@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
+buildscript {               //定义了 Android 编译工具的类路径
     repositories {
         jcenter()
     }
@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-allprojects {
+allprojects {         //定义的属性会被应用到所有 moudle 中
     repositories {
         jcenter()
     }
