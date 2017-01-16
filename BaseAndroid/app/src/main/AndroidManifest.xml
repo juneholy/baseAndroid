@@ -95,6 +95,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".broadcast.ReceiverAlarm">
+            <intent-filter>
+                <action android:name="ALARM_CLOCK" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".service.DaemonService"
             android:enabled="true"

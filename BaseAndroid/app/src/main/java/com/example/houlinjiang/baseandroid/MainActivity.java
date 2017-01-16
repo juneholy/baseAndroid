@@ -4,6 +4,8 @@ import android.Manifest.permission;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -35,6 +37,14 @@ public class MainActivity extends AppCompatActivity implements RequestCode{
                 testOnClick();
             }
         });
+    }
+
+    private void startAlarm() {
+        Intent intent = new Intent("ALARM_CLOCK");
+        intent.putExtra("msg","闹钟响了");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,0,intent,0);
+        AlarmManager am = (AlarmManager) getSystemService(ALARM_SERVICE);
+        am.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),60*1000,pendingIntent);
     }
 
     private void testOnClick() {

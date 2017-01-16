@@ -16,9 +16,54 @@ android {                //是编译文件中最大的代码块，关于android 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+//每当创建一个新的build type 的时候，gradle 默认都会创建一个新的source set。我们可以建立与main文件夹同级的文件夹，根据编译类型的不同我们可以选择对某些源码直接进行替换。
+        }
+    }
+
+//    flavorDimensionList "color" ,"price"
+//    productFlavors {
+//        red {
+//            flavorDimension "color"
+//        }
+//        blue {
+//            flavorDimension " color"
+//        }
+//        free {
+//            flavorDimension "price"
+//        }
+//
+//        paid {
+//            flavorDimension "price"
+//        }
+//
+//    }
+    productFlavors {
+
+        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
+        flavors_default {
+        }
+
+        //开发版本, applicationId 替换为 com.littlejie.multichannel.dev
+        flavors_dev {
+            applicationId "com.example.houlinjiang.baseandroid.dev"
+        }
+
+        //发布版本, applicationId 替换为 com.littlejie.multichannel.dev
+        flavors_release {
+            applicationId "com.example.houlinjiang.baseandroid.release"
+        }
     }
 //    sourceSets.main{
 // 配置本地 .so库。在配置文件中做如下配置，然后在对应位置建立文件夹，加入对应平台的.so文件。
+//    }
+//    signingConfigs {
+//        release {
+//            storeFile file("")
+//            storePassword ""
+//            keyAlias ""
+//            keyPassword ""
+//        }
 //    }
 }
 
@@ -42,7 +87,8 @@ repositories {
 //每个库名称包含三个元素：组名:库名称:版本号,
 
 //通过files()方法可以添加文件依赖，如果有很多jar文件，我们也可以通过fileTree()方法添加一个文件夹
-dependencies {                 //gradle 的依赖配置。它定义了当前项目需要依赖的其他库
+dependencies {
+    //gradle 的依赖配置。它定义了当前项目需要依赖的其他库
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -52,3 +98,26 @@ dependencies {                 //gradle 的依赖配置。它定义了当前项�
     compile project(path: ':jniguard')
     compile 'com.alibaba:fastjson:1.2.23'
 }
+
+task hello {
+    print("hello !!! how are you ?" + "\n")
+    doFirst {
+        print("start...")
+    }
+    doLast {
+        print("end...")
+    }
+}
+
+task helloBack {
+    print("hello  !!! i am fine ." + "\n")
+    doFirst {
+        print("start...")
+    }
+    doLast {
+        print("end...")
+    }
+}
+
+//helloBack.mustRunAfter hello
+//helloBack.dependsOn hello

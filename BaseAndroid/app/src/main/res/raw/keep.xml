@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources xmlns:tools="http://schemas.android.com/tools"
+               tools:keep=""/>
+    <!--一些资源是需要通过动态加载的方式载入的-->
