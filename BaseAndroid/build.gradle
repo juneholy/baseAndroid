@@ -18,9 +18,9 @@ allprojects {         //定义的属性会被应用到所有 moudle 中
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
 
 //Gradle 会根据build 文件的配置生成不同的task，我们可以直接单独执行每一个task。
 //通过./gradlew tasks列出所有task。如果通过同时还想列出每个task 对应依赖的其他task，可以使用./gradlew tasks -all。

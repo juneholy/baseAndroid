@@ -16,9 +16,9 @@ android {                //是编译文件中最大的代码块，关于android 
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug {
-//每当创建一个新的build type 的时候，gradle 默认都会创建一个新的source set。我们可以建立与main文件夹同级的文件夹，根据编译类型的不同我们可以选择对某些源码直接进行替换。
-        }
+//        debug {
+////每当创建一个新的build type 的时候，gradle 默认都会创建一个新的source set。我们可以建立与main文件夹同级的文件夹，根据编译类型的不同我们可以选择对某些源码直接进行替换。
+//        }
     }
 
 //    flavorDimensionList "color" ,"price"
@@ -38,22 +38,22 @@ android {                //是编译文件中最大的代码块，关于android 
 //        }
 //
 //    }
-    productFlavors {
-
-        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
-        flavors_default {
-        }
-
-        //开发版本, applicationId 替换为 com.littlejie.multichannel.dev
-        flavors_dev {
-            applicationId "com.example.houlinjiang.baseandroid.dev"
-        }
-
-        //发布版本, applicationId 替换为 com.littlejie.multichannel.dev
-        flavors_release {
-            applicationId "com.example.houlinjiang.baseandroid.release"
-        }
-    }
+//    productFlavors {
+//
+//        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
+//        flavors_default {
+//        }
+//
+//        //开发版本, applicationId 替换为 com.littlejie.multichannel.dev
+//        flavors_dev {
+//            applicationId "com.example.houlinjiang.baseandroid.dev"
+//        }
+//
+//        //发布版本, applicationId 替换为 com.littlejie.multichannel.dev
+//        flavors_release {
+//            applicationId "com.example.houlinjiang.baseandroid.release"
+//        }
+//    }
 //    sourceSets.main{
 // 配置本地 .so库。在配置文件中做如下配置，然后在对应位置建立文件夹，加入对应平台的.so文件。
 //    }
@@ -97,27 +97,28 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(path: ':jniguard')
     compile 'com.alibaba:fastjson:1.2.23'
+    compile 'com.squareup.okhttp3:okhttp:3.5.0'
 }
 
-task hello {
-    print("hello !!! how are you ?" + "\n")
-    doFirst {
-        print("start...")
-    }
-    doLast {
-        print("end...")
-    }
-}
-
-task helloBack {
-    print("hello  !!! i am fine ." + "\n")
-    doFirst {
-        print("start...")
-    }
-    doLast {
-        print("end...")
-    }
-}
+//task hello {
+//    print("hello !!! how are you ?" + "\n")
+//    doFirst {
+//        print("start...")
+//    }
+//    doLast {
+//        print("end...")
+//    }
+//}
+//
+//task helloBack {
+//    print("hello  !!! i am fine ." + "\n")
+//    doFirst {
+//        print("start...")
+//    }
+//    doLast {
+//        print("end...")
+//    }
+//}
 
 //helloBack.mustRunAfter hello
 //helloBack.dependsOn hello

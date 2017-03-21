@@ -15,20 +15,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.houlinjiang.baseandroid.constant.RequestCode;
-import com.example.houlinjiang.baseandroid.service.DaemonService;
 
 public class MainActivity extends AppCompatActivity implements RequestCode{
 
     private TextView tv_log;
     private Button btStart;
+    private EditText et_edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        et_edit = (EditText) findViewById(R.id.et_edit);
         tv_log = (TextView) findViewById(R.id.tv_log);
         btStart = (Button) findViewById(R.id.bt_testClick);
         btStart.setOnClickListener(new OnClickListener() {
@@ -48,8 +50,9 @@ public class MainActivity extends AppCompatActivity implements RequestCode{
     }
 
     private void testOnClick() {
-        startService(new Intent(this,DaemonService.class));
-    }
+//        startService(new Intent(this,DaemonService.class));
+
+           }
 
 
     public void testCrash(View view) {

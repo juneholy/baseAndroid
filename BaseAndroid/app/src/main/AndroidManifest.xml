@@ -27,12 +27,12 @@
         <!-- *****************************     activity           ******************************* -->
         <!-- ==================================================================================== -->
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+        <activity android:name=".baseDemo.ClientActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN"/>-->
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER"/>-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".recovery.core.RecoveryActivity"
@@ -53,6 +53,19 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+        <!--<activity android:name=".baseDemo.ClientActivity"-->
+        <!--android:configChanges="orientation"-->
+        <!--/>-->
+        <activity android:name=".baseDemo.LifeActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN"/>
+
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent-filter>
+        </activity>
+        <activity android:name=".baseDemo.LifeActivity1"
+            android:launchMode="singleTask"/>
+        <activity android:name=".baseDemo.LifeActivity2"/>
         <activity android:name=".broadcast.TestBroadcastActivity">
         </activity>
         <!-- ==================================================================================== -->
@@ -82,6 +95,14 @@
                 android:name="android.accounts.AccountAuthenticator"
                 android:resource="@xml/authenticator"/>
         </service>
+        <service
+            android:name=".baseDemo.MessengerService"
+            android:process=":remote"/>
+        <service
+            android:name=".service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
         <!-- ==================================================================================== -->
         <!-- *****************************     receiver           ******************************* -->
         <!-- ==================================================================================== -->
@@ -97,15 +118,19 @@
 
         <receiver android:name=".broadcast.ReceiverAlarm">
             <intent-filter>
-                <action android:name="ALARM_CLOCK" />
+                <action android:name="ALARM_CLOCK"/>
             </intent-filter>
         </receiver>
 
-        <service
-            android:name=".service.DaemonService"
-            android:enabled="true"
-            android:exported="true">
-        </service>
+        <!-- ==================================================================================== -->
+        <!-- *****************************     provider           ******************************* -->
+        <!-- ==================================================================================== -->
+        <provider
+            android:name=".baseDemo.myContentProvider"
+            android:authorities="com.holy.baseDemo.myContentProvider"
+            android:permission="com.holy.PROVIDER"
+            android:process=":provider"
+            />
     </application>
 
 </manifest>
